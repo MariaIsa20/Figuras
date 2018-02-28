@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Figuras</string>
+    <string name="Figuras">Figuras Geometricas</string>
+    <string name="Cuadrado">Cuadrado</string>
+    <string name="Circulo">Circulo</string>
+    <string name="Triangulo">Triangulo</string>
+    <string name="Cubo">Cubo</string>
+    <string name="Info">Elija la figura para la que desea calcular área, perímetro o volumen en centímetros.</string>
+    <string name="Resultado">Resultado:</string>
+    <string name="calcular">Calcular</string>
+</resources>
