@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        // Relaciono con el xml
         eValor1 = findViewById(R.id.eValor1);
         eValor2 = findViewById(R.id.eValor2);
         eValor3 = findViewById(R.id.eValor3);
@@ -41,32 +41,29 @@ public class MainActivity extends AppCompatActivity {
         bCalcular = findViewById(R.id.bcalcular);
 
         Iimagen = findViewById(R.id.Iimagen);
-
+                //iniciar con los edit text desahabilitados
         eValor1.setEnabled(false);
         eValor2.setEnabled(false);
         eValor3.setEnabled(false);
-
 
     }
 
     public void onRadioButtonClicked(View view) {
-
+            // Desahabilitar edit text cada que se cambia de radio buton seleccionado
         eValor1.setEnabled(false);
         eValor2.setEnabled(false);
         eValor3.setEnabled(false);
-
 
         int id = view.getId();
 
         switch (id) {
 
             case R.id.rCirculo:
-                eValor1.setText(null);
+                eValor1.setText(null); //quitar lo que haya en el "renglon"
                 eValor2.setHint(null);
                 eValor3.setHint(null);
                 eValor1.setHint("Ingrese el radio");
-                eValor1.setEnabled(true);
-
+                eValor1.setEnabled(true); //habilitar renglon
 
                 break;
 
@@ -103,21 +100,16 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-
     }
-
-
+ //boton para calcular
     public void calcular(View view) {
 
         int id = view.getId();
 
         if (id == R.id.bcalcular) {
-            S1 = eValor1.getText().toString();
+            S1 = eValor1.getText().toString();//cambia a tipo string
             S2 = eValor2.getText().toString();
             S3 = eValor3.getText().toString();
-
-
-
 
             if (rCirculo.isChecked()) {
 
@@ -127,15 +119,14 @@ public class MainActivity extends AppCompatActivity {
                     tResultado.setText("Campo vacío");
 
                 }else {
-
-                    valor1 = Float.parseFloat(eValor1.getText().toString());
+                            //calculos
+                    valor1 = Float.parseFloat(eValor1.getText().toString()); //pasa tipo float
                     perimetro = 2 * valor1 * Math.PI;
                     area = Math.pow(valor1, 2) * Math.PI;
 
-                    tResultado.setText("Perimetro=" + (String.format("%.2f", perimetro)) + "cm" + "\n" + "Area=" + (String.format("%.2f", area)) + "cm^2");
+                    tResultado.setText("Perimetro=" + (String.format("%.2f", perimetro)) + "cm" + "\n" + "Area=" + (String.format("%.2f", area)) + "cm²");
 
-
-                    Iimagen.setImageResource(R.drawable.circulo);
+                    Iimagen.setImageResource(R.drawable.circulo); //muestra la imagen
                 }
 
                 }
@@ -155,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
                     perimetro = valor1 + valor2 + valor3;
                     area = Math.sqrt((0.5 * perimetro) * (0.5 * perimetro - valor1) * (0.5 * perimetro - valor2) * (0.5 * perimetro - valor3)); // Formula de Herón
 
-                    tResultado.setText("Perimetro=" + (String.format("%.2f", perimetro)) + "cm" + "\n" + "Area=" + (String.format("%.2f", area)) + "cm^2");
+                    tResultado.setText("Perimetro=" + (String.format("%.2f", perimetro)) + "cm" + "\n" + "Area=" + (String.format("%.2f", area)) + "cm²");
 
                     Iimagen.setImageResource(R.drawable.triangulo);
                 }
@@ -173,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
                     perimetro = 4 * valor1;
                     area = valor1 * valor1;
 
-                    tResultado.setText("Perimetro=" + (String.format("%.2f", perimetro)) + "cm" + "\n" + "Area=" + (String.format("%.2f", area)) + "cm^2");
+                    tResultado.setText("Perimetro=" + (String.format("%.2f", perimetro)) + "cm" + "\n" + "Area=" + (String.format("%.2f", area)) + "cm²");
 
                     Iimagen.setImageResource(R.drawable.cuadrado);
                 }
@@ -192,15 +183,13 @@ public class MainActivity extends AppCompatActivity {
                     perimetro = 12 * valor1;
                     area = 6 * valor1 * valor1;
                     volumen = valor1 * valor1 * valor1;
-                    tResultado.setText("Perimetro=" + (String.format("%.2f", perimetro)) + "cm" + "\n" + "Area=" + (String.format("%.2f", area)) + "cm^2" + "\n" +
-                            "Volumen=" + (String.format("%.2f", volumen)) + "cm^3");
+                    tResultado.setText("Perimetro=" + (String.format("%.2f", perimetro)) + "cm" + "\n" + "Area=" + (String.format("%.2f", area)) + "cm²" + "\n" +
+                            "Volumen=" + (String.format("%.2f", volumen)) + "cm³");
 
                     Iimagen.setImageResource(R.drawable.cubo);
                 }
 
                 }
-
-
 
         }
     }
